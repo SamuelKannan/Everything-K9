@@ -10,6 +10,7 @@
 
 <body>
     <header>
+        <img src="Pics/Logo_resized.JPEG" alt="My photo">
         <h1>Everything K9</h1>
         <p>Best place for in-home Dog Boarding & Training in Greenville, SC</p>
         <p><strong>Training:</strong> Call/Text 864-280-1009</p>
@@ -23,7 +24,8 @@
             animals, exotic animals, reptiles, and of course, Dogs. As a prior veterinarian technician Jaylin has had
             experience delivering medication and vaccinations. We live and breathe animals, and can’t wait to help your
             family out anyway we can!</p>
-        <img src="us-with-dogs.jpg" alt="Jaylin and Charlie with their dogs">
+        <img src="Pics/Charlie_Jaylin.JPEG" alt="Jaylin and Charlie with their dogs">
+        <img src="Pics/Charlie_Standing_dogs.PNG" alt="Jaylin and Charlie with their dogs">
     </section>
 
     <section class="services">
@@ -33,7 +35,8 @@
             <p>Everything K9 is the full-service solution to your daycare and boarding needs. Relax knowing your pet is
                 under the care of Charlie and Jaylin Fowler, professional dog trainers. Whether your dog prefers
                 solitude or social time, we’ve got them covered.</p>
-            <img src="dogs-playing.jpg" alt="Dogs playing">
+            <img src="Pics/dog_playing1.PNG" alt="Dogs playing">
+            <img src="Pics/dog_playing2.PNG" alt="Dogs playing">
         </article>
 
         <article class="board-train">
@@ -41,7 +44,8 @@
             <p>Unleash your dog’s potential with our 3-week board and train program in our home. We teach sit, down,
                 come, heel, place and kennel—plus address behavioral issues like barking or leash pulling. Includes
                 leash, place bed, e-collar, and long line. Lifetime support provided.</p>
-            <img src="training-dogs.jpg" alt="Dog training in progress">
+            <img src="Pics/dog_training1.JPEG" alt="Dog training in progress">
+            <img src="Pics/dog_training2.JPEG" alt="Dog training in progress">
         </article>
 
         <article class="lessons">
@@ -49,9 +53,57 @@
             <p>If you’re not ready for the board & train, we also offer personal lessons. We cover basic commands and
                 help you correct unwanted behaviors, using leash or E-collar methods. We’ll guide you every step of the
                 way!</p>
-            <img src="client-training.jpg" alt="Client training with dog">
+            <img src="Pics/client_training1.JPEG" alt="Client training with dog">
+            <img src="Pics/client_training2.JPEG" alt="Client training with dog">
         </article>
     </section>
+    <section id="contact" class="contact-form-section">
+        <hr class="grey-line" />
+        <h2>Contact Us</h2>
+        <div class="form-container">
+            <form id="contactForm" action="https://formspree.io/f/mbloojwq" method="POST">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="Your email">
+
+                <label for="phone">Phone No</label>
+                <input type="text" id="phone" name="phone" placeholder="Your phone number">
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Your message"></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+            <div class="thanks-message" id="thanksMessage">Thanks! Your message has been sent.</div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const form = e.target;
+
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    form.reset();
+                    document.getElementById("thanksMessage").style.display = "block";
+                } else {
+                    alert("Oops! There was a problem submitting your form.");
+                }
+            }).catch(error => {
+                alert("Oops! There was a problem submitting your form.");
+            });
+        });
+    </script>
+
 
     <footer>
         <p>&copy; 2025 Everything K9 | Dog Boarding & Training | Greenville, SC</p>
